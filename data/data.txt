@@ -1,0 +1,7 @@
+jonathanlowe03
+
+otpytDiRW04m9aQG
+
+mongodb+srv://jonathanlowe03:otpytDiRW04m9aQG@cluster0.tvfvrfj.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+mongodb+srv://jonathanlowe03:<password>@cluster0.tvfvrfj.mongodb.net/
