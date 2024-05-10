@@ -59,9 +59,73 @@ const addFunFact = async (req, res) => {
   }
 };
 
+// Controller to handle GET /states/:state/capital
+const getStateCapital = async (req, res) => {
+    const { stateCode } = req.params;
+    try {
+      const state = await State.findOne({ stateCode });
+      if (state && state.capital) {
+        res.json({ state: state.stateName, capital: state.capital });
+      } else {
+        res.status(404).json({ error: "Capital not found for this state" });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Internal server error" });
+    }
+  };
+  
+  // Controller to handle GET /states/:state/nickname
+  const getStateNickname = async (req, res) => {
+    const { stateCode } = req.params;
+    try {
+      const state = await State.findOne({ stateCode });
+      if (state && state.nickname) {
+        res.json({ state: state.stateName, nickname: state.nickname });
+      } else {
+        res.status(404).json({ error: "Nickname not found for this state" });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Internal server error" });
+    }
+  };
+  
+  // Controller to handle GET /states/:state/population
+  const getStatePopulation = async (req, res) => {
+    const { stateCode } = req.params;
+    try {
+      const state = await State.findOne({ stateCode });
+      if (state && state.population) {
+        res.json({ state: state.stateName, population: state.population });
+      } else {
+        res.status(404).json({ error: "Population not found for this state" });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Internal server error" });
+    }
+  };
+  
+  // Controller to handle GET /states/:state/admission
+  const getStateAdmission = async (req, res) => {
+    const { stateCode } = req.params;
+    try {
+      const state = await State.findOne({ stateCode });
+      if (state && state.admissionDate) {
+        res.json({ state: state.stateName, admitted: state.admissionDate });
+      } else {
+        res.status(404).json({ error: "Admission date not found for this state" });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Internal server error" });
+    }
+  };
+
 module.exports = {
   getAllStates,
   getStateByCode,
   getRandomFunFact,
   addFunFact,
+  getStateCapital,
+  getStateNickname,
+  getStatePopulation,
+  getStateAdmission,
 };
